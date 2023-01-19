@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" name="VendorPortalSyncAppl" packages="pwr.lcec.sync" xmlns="http://logging.apache.org/log4j/2.0/config">
+    <Properties>
+        <Property name="logPath">logs</Property>
+        <Property name="rollingFileName">syncVendorportalModel</Property>
+    </Properties>
+    <Appenders>
+		<RollingFile name="rollingFile" fileName="${logPath}/${rollingFileName}.log" filePattern="${logPath}/${rollingFileName}_%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} [%highlight{%-5level}] (%F:%L) - %msg%n" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="10"/>
+		</RollingFile>
+		
+		<SMTP name="LogToMail" subject="Vendor Portal Sync Error"
+              from="donotreply@lcec.net"
+              to="patrick.bowles@lcec.net"
+              smtpHost="webmail.lcec.pwr"
+              smtpPort="25"
+              bufferSize="100">
+              
+        </SMTP>
+		
+        <!-- Console Appender -->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} %-5p (%F:%L) - %msg%n" />
+            <!-- <PatternLayout pattern="[%-5p] %d{yyyy-MM-dd HH:mm:ss} | %C{2} (%F:%L) - %m%n" /> -->
+            <!-- <PatternLayout pattern="[%highlight{%-5level}] %d{DEFAULT} %c{2}.%M() - %msg%n%throwable{short.lineNumber}" /> -->
+        </Console>
+    </Appenders>
+    <Loggers>
+       <Logger name="pwr.lcec.sync" level="INFO" additivity="false">
+                  <AppenderRef ref="STDOUT"/>
+                  <AppenderRef ref="rollingFile"/>
+       </Logger>
+        <Root level="INFO">
+            <AppenderRef ref="STDOUT" />
+            <AppenderRef ref="rollingFile"/>
+            <AppenderRef ref="LogToMail"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="NISCPU" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/NISCDS</jta-data-source>
+		<class>pwr.lcec.sync.entity.nisc.BiResourceRef</class>
+		<class>pwr.lcec.sync.entity.nisc.BiSoDet</class>
+		<class>pwr.lcec.sync.entity.nisc.BiSoTypeFunctionRef</class>
+		<class>pwr.lcec.sync.entity.nisc.BiSoTypeFunctionRefPK</class>
+		<class>pwr.lcec.sync.entity.nisc.BiTaskRef</class>
+		<class>pwr.lcec.sync.entity.nisc.BiWrkflw</class>
+		<class>pwr.lcec.sync.entity.nisc.BiWrkflwTask</class>
+		<class>pwr.lcec.sync.entity.nisc.WoMstr</class>
+		<class>pwr.lcec.sync.entity.nisc.WoMstrPK</class>
+		<class>pwr.lcec.sync.entity.nisc.BiSrvLoc</class>
+		<class>pwr.lcec.sync.entity.nisc.WoCauRefRate</class>
+		<class>pwr.lcec.sync.entity.nisc.WoCauRefRatePK</class>
+		<class>pwr.lcec.sync.entity.nisc.WoRateGrpRef</class>
+		<class>pwr.lcec.sync.entity.nisc.WoCauRef</class>
+		<class>pwr.lcec.sync.entity.nisc.WoLaborRateRef</class>
+		<class>pwr.lcec.sync.entity.nisc.BiSoMaster</class>
+		<class>pwr.lcec.sync.entity.nisc.BiWorkEventCdRef</class>
+		<class>pwr.lcec.sync.entity.nisc.GlAcctMstr</class>
+		<class>pwr.lcec.sync.entity.nisc.GlAcctMstrPK</class>
+		<class>pwr.lcec.sync.entity.nisc.BiResourceWorkgrp</class>
+		<class>pwr.lcec.sync.entity.nisc.BiResourceWorkgrpPK</class>
+		<class>pwr.lcec.sync.entity.nisc.ApBatchTran</class>
+		<class>pwr.lcec.sync.entity.nisc.ApBatchTranDist</class>
+		<class>pwr.lcec.sync.entity.nisc.ApBatchTranDistPK</class>
+		<class>pwr.lcec.sync.entity.nisc.ApInvAct</class>
+		<class>pwr.lcec.sync.entity.nisc.WoTranInqView</class>
+		<properties>
+			<property name="eclipselink.target-server" value="WebLogic" />
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="eclipselink.logging.level.sql" value="SEVERE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="VPPU" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<!-- <jta-data-source>jdbc/VPDS</jta-data-source> -->
+		<jta-data-source>jdbc/VENDORPORTALDS</jta-data-source>
+		<class>pwr.lcec.sync.entity.vp.GLAccount</class>
+		<class>pwr.lcec.sync.entity.vp.RateGroup</class>
+		<class>pwr.lcec.sync.entity.vp.RateGroupPrice</class>
+		<class>pwr.lcec.sync.entity.vp.Resource</class>
+		<class>pwr.lcec.sync.entity.vp.ServiceOrder</class>
+		<class>pwr.lcec.sync.entity.vp.StakingSheet</class>
+		<class>pwr.lcec.sync.entity.vp.StakingSheetDetail</class>
+		<class>pwr.lcec.sync.entity.vp.TempWMISWorkRequest</class>
+		<class>pwr.lcec.sync.entity.vp.WorkEventStatus</class>
+		<class>pwr.lcec.sync.entity.vp.WorkFlow</class>
+		<class>pwr.lcec.sync.entity.vp.WorkFlowTask</class>
+		<class>pwr.lcec.sync.entity.vp.WorkGroup</class>
+		<class>pwr.lcec.sync.entity.vp.Invoice</class>
+		<class>pwr.lcec.sync.entity.vp.InvoiceDetail</class>
+		<class>pwr.lcec.sync.entity.vp.Vendor</class>
+		<class>pwr.lcec.sync.entity.vp.InvoiceSyncVw</class>
+		<class>pwr.lcec.sync.entity.vp.CurrentContractDate</class>
+		<properties>
+			<property name="eclipselink.target-server" value="WebLogic" />
+			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<property name="eclipselink.logging.level.sql" value="SEVERE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+		</properties>
+	</persistence-unit>
+	<!-- <persistence-unit name="WMISPU" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/ARMDS</jta-data-source>
+		<class>pwr.lcec.sync.entity.wmis.WorkRequest</class>
+		<class>pwr.lcec.sync.entity.wmis.WrDesignContract</class>
+		<class>pwr.lcec.sync.entity.wmis.WrPointSpan</class>
+		<class>pwr.lcec.sync.entity.wmis.WrPointSpanCu</class>
+		<properties>
+			<property name="eclipselink.target-server" value="WebLogic" />
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="eclipselink.logging.level.sql" value="SEVERE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+		</properties>
+	</persistence-unit> -->
+	<persistence-unit name="GISPU" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/GISDS</jta-data-source>
+		<class>pwr.lcec.sync.entity.gis.GsAssemblyRef</class>
+		<class>pwr.lcec.sync.entity.gis.StAttachedAssembly</class>
+		<class>pwr.lcec.sync.entity.gis.StStation</class>
+		<class>pwr.lcec.sync.entity.gis.StStatusRef</class>
+		<class>pwr.lcec.sync.entity.gis.StWorkorderRef</class>
+		<properties>
+			<property name="eclipselink.target-server" value="WebLogic" />
+			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<property name="eclipselink.logging.level.sql" value="SEVERE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="CCPU" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/CCDS</jta-data-source>
+		<class>pwr.lcec.sync.entity.customconfig.ScheduledTask</class>
+		<properties>
+			<property name="eclipselink.target-server" value="WebLogic" />
+			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<property name="eclipselink.logging.level.sql" value="SEVERE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
